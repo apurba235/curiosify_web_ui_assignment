@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "697767876930",
+    "project_id": "curiosifywebui",
+    "storage_bucket": "curiosifywebui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697767876930:android:00d558694c7bda66a850db",
+        "android_client_info": {
+          "package_name": "com.example.curiosify_ui_assignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxw_iMLw59fLV9oIjhoMs5edMH5cRUfVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

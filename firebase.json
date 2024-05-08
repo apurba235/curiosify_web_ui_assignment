@@ -1,0 +1,31 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "curiosifywebui",
+          "appId": "1:697767876930:android:00d558694c7bda66a850db",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "curiosifywebui",
+          "configurations": {
+            "android": "1:697767876930:android:00d558694c7bda66a850db",
+            "ios": "1:697767876930:ios:9c1c7c8988f93dbfa850db",
+            "web": "1:697767876930:web:cd8bb06367399b90a850db"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
