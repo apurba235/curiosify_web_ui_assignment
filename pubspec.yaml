@@ -14,6 +14,8 @@ dependencies:
   go_router: ^6.0.9
   reactiv: ^0.3.4
   firebase_core: ^2.11.0
+  google_fonts: ^4.0.4
+  file_picker: ^6.1.1
 
 dev_dependencies:
   flutter_test:

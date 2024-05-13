@@ -1,6 +1,7 @@
 import 'package:curiosify_ui_assignment/consts/app_asset_const.dart';
 import 'package:curiosify_ui_assignment/consts/app_color_const.dart';
 import 'package:curiosify_ui_assignment/consts/app_string_const.dart';
+import 'package:curiosify_ui_assignment/data/resource_model.dart';
 import 'package:curiosify_ui_assignment/graphics/buttons/custom_filled_button.dart';
 import 'package:curiosify_ui_assignment/infrastructure/navigation/navigation.dart';
 import 'package:curiosify_ui_assignment/presentation/library_module/controllers/library.controller.dart';
@@ -75,16 +76,69 @@ class LibraryScreen extends ReactiveStateWidget<LibraryScreenController> {
               )
             ],
           ),
+          Observer(
+              listenable: ResourceData.data,
+              listener: (dataList) {
+                return SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      ...List.generate(
+                        dataList.length,
+                        (i) => Card(
+                          margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                          shape: RoundedRectangleBorder(
+                            side: const BorderSide(color: AppColorConsts.amber),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Text('Title:'),
+                                    Text(dataList[i].title),
+                                  ],
+                                ),
+                                const SizedBox(height: 10),
+                                Row(
+                                  children: [
+                                    const Text('Content:'),
+                                    Text(dataList[i].details),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
           Expanded(
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    AppStringConst.noResourceText,
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                  ),
-                  const SizedBox(height: 10.0),
+                  Observer(
+                      listenable: ResourceData.data,
+                      listener: (dataList) {
+                        return dataList.isEmpty
+                            ? const Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    AppStringConst.noResourceText,
+                                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                                  ),
+                                  SizedBox(height: 10.0),
+                                ],
+                              )
+                            : const SizedBox.shrink();
+                      }),
                   CustomFilledButton(
                     onPressed: () => Routes.of(context).toLocationManualResource(),
                     child: const Row(
